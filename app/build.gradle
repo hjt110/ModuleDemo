@@ -1,0 +1,34 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+
+
+android {
+    compileSdkVersion rootProject.ext.vesions.compileSdkVersion
+    defaultConfig {
+        applicationId rootProject.ext.vesions.applicationId
+        minSdkVersion rootProject.ext.vesions.minSdkVersion
+        targetSdkVersion rootProject.ext.vesions.targetSdkVersion
+        versionCode rootProject.ext.vesions.versionCode
+        versionName rootProject.ext.vesions.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    // 在项目中的libs中的所有的.jar结尾的文件，都是依赖
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':lib_tong')
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+
+    if (!Boolean.valueOf(rootProject.ext.isModule)){
+        implementation project(':module_main')
+        implementation project(':module_user')
+    }
+}

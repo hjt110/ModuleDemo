@@ -1,0 +1,57 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.vesions.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.vesions.minSdkVersion
+        targetSdkVersion rootProject.ext.vesions.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //ARouter路由设置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    // 在项目中的libs中的所有的.jar结尾的文件，都是依赖
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    api 'com.android.support:appcompat-v7:27.1.1'
+    api 'com.android.support:support-v4:27.1.1'
+    api 'com.android.support:recyclerview-v7:27.1.1'
+    api 'com.android.support.constraint:constraint-layout:1.1.3'
+    //test
+    api 'junit:junit:4.12'
+    api 'com.android.support.test:runner:1.0.2'
+    api 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    api 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    api 'io.reactivex.rxjava2:rxjava:2.1.7'
+    api 'com.squareup.retrofit2:retrofit:2.4.0'
+    api 'com.squareup.retrofit2:converter-gson:2.3.0'
+    api 'com.squareup.retrofit2:converter-scalars:2.0.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
+    api 'com.google.code.gson:gson:2.8.2'
+    api 'com.squareup.okhttp3:okhttp:3.9.0'
+
+    api 'com.jakewharton:butterknife:8.4.0'
+    api 'org.greenrobot:eventbus:3.1.1'
+    //ARouter路由
+    api 'com.alibaba:arouter-api:1.4.1'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+}
