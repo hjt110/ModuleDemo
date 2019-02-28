@@ -26,6 +26,7 @@ dependencies {
     implementation project(':lib_tong')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
+    
     if (!Boolean.valueOf(rootProject.ext.isModule)){
         implementation project(':module_main')
         implementation project(':module_user')
