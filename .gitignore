@@ -1,8 +1,7 @@
 *.iml
 .gradle
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
+.idea
 .DS_Store
 /build
 /captures
@@ -12,16 +11,3 @@
 *.apk
 *.class
 
-# IntelliJ (IDE配置文件)
-*.iml
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/gradle.xml
-.idea/assetWizardSettings.xml
-.idea/dictionaries
-.idea/libraries
-.idea/caches
-.idea/misc.xml
-
-# 本地配置文件 (sdk path, etc)
-local.properties
