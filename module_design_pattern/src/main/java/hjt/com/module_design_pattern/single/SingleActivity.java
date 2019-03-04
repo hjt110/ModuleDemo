@@ -1,4 +1,4 @@
-package hjt.com.module.main;
+package hjt.com.module_design_pattern.single;
 
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -7,8 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.tong.library.adapter.recyclerview.MultiItemTypeAdapter;
 import com.tong.library.base.BaseActivity;
 
@@ -17,28 +15,27 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import hjt.com.module.main.adpter.MainAdpter;
+import hjt.com.module_design_pattern.R;
+import hjt.com.module_design_pattern.R2;
+import hjt.com.module_design_pattern.adpter.MainAdpter;
 
-@Route(path = "/main/main")
-public class MainActivity extends BaseActivity {
-
+public class SingleActivity extends BaseActivity {
 
     @BindView(R2.id.rlv)
     RecyclerView rlv;
-    private List<String> dateList = new ArrayList<>();
     private MainAdpter mainAdpter;
+    private List<String> dataList = new ArrayList<>();
 
     @Override
     protected int getLayoutResID() {
-        return R.layout.main_activity_main;
+        return R.layout.design_activity_single;
     }
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        dateList.add("module_design_pattern");
-        dateList.add("module_user");
+        dataList.add(Singleton.getInstance().hashCode() + "");
         rlv.setLayoutManager(new LinearLayoutManager(getContext()));
-        mainAdpter = new MainAdpter(getContext(), dateList);
+        mainAdpter = new MainAdpter(getContext(), dataList);
         rlv.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         rlv.setAdapter(mainAdpter);
     }
@@ -48,14 +45,9 @@ public class MainActivity extends BaseActivity {
         mainAdpter.setOnItemClickListener(new MultiItemTypeAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-                switch (position) {
-                    case 0:
-                        ARouter.getInstance().build("/design/main").navigation();
-                        break;
-                    case 1:
-                        ARouter.getInstance().build("/user/second").navigation();
-                        break;
-                }
+                //通过刷新新的Singleton对象的hashCode值证明新的对象是否为同一个
+                dataList.add(Singleton.getInstance().hashCode() + "");
+                mainAdpter.notifyDataSetChanged();
             }
 
             @Override
@@ -64,5 +56,4 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
-
 }
