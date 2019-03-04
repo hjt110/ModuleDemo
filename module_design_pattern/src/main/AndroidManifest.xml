@@ -9,6 +9,8 @@
         </activity>
         <activity android:name=".single.SingleActivity">
         </activity>
+        <activity android:name=".factory.FactoryActivity">
+        </activity>
     </application>
 
 </manifest>

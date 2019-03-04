@@ -16,6 +16,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import hjt.com.module_design_pattern.adpter.MainAdpter;
+import hjt.com.module_design_pattern.factory.FactoryActivity;
 import hjt.com.module_design_pattern.single.SingleActivity;
 import hjt.com.module_design_pattern.state.StateActivity;
 
@@ -34,11 +35,13 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        dataList.add("状态模式");
-        dataList.add("单例模式");
         rlv.setLayoutManager(new LinearLayoutManager(getContext()));
         mainAdpter = new MainAdpter(getContext(), dataList);
         rlv.setAdapter(mainAdpter);
+        dataList.add("状态模式");
+        dataList.add("单例模式");
+        dataList.add("工厂模式");
+        mainAdpter.notifyDataSetChanged();
     }
 
     @Override
@@ -52,6 +55,9 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 1:
                         startActivity(new Intent(getContext(), SingleActivity.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(getContext(), FactoryActivity.class));
                         break;
                 }
             }
