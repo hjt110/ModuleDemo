@@ -34,6 +34,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         dateList.add("module_design_pattern");
+        dateList.add("module_user");
         rlv.setLayoutManager(new LinearLayoutManager(getContext()));
         mainAdpter = new MainAdpter(getContext(), dateList);
         rlv.setAdapter(mainAdpter);
@@ -47,6 +48,9 @@ public class MainActivity extends BaseActivity {
                 switch (position) {
                     case 0:
                         ARouter.getInstance().build("/design/main").navigation();
+                        break;
+                    case 1:
+                        ARouter.getInstance().build("/user/second").navigation();
                         break;
                 }
             }
