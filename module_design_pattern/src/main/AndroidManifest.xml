@@ -3,6 +3,8 @@
           package="hjt.com.module_design_pattern">
 
     <application>
+        <activity android:name=".MainActivity">
+        </activity>
         <activity android:name=".state.StateActivity">
         </activity>
     </application>

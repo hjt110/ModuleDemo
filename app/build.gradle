@@ -14,12 +14,12 @@ android {
         //MultiDex分包方法
         multiDexEnabled true
         //Arouter路由配置
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
-                includeCompileClasspath = true
-            }
-        }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [moduleName: project.getName()]
+//                includeCompileClasspath = true
+//            }
+//        }
     }
     buildTypes {
         release {
@@ -34,11 +34,12 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':lib_tong')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+//    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
-    
+
     if (!Boolean.valueOf(rootProject.ext.isModule)){
         implementation project(':module_main')
         implementation project(':module_user')
+        implementation project(':module_design_pattern')
     }
 }

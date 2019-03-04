@@ -1,12 +1,12 @@
-package hjt.com.module.main;
+package hjt.com.module_design_pattern;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.tong.library.adapter.recyclerview.MultiItemTypeAdapter;
 import com.tong.library.base.BaseActivity;
 
@@ -15,27 +15,27 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import hjt.com.module.main.adpter.MainAdpter;
+import hjt.com.module_design_pattern.adpter.MainAdpter;
+import hjt.com.module_design_pattern.state.StateActivity;
 
-@Route(path = "/main/main")
+@Route(path = "/design/main")
 public class MainActivity extends BaseActivity {
-
 
     @BindView(R2.id.rlv)
     RecyclerView rlv;
-    private List<String> dateList = new ArrayList<>();
+    private List<String> dataList = new ArrayList<>();
     private MainAdpter mainAdpter;
 
     @Override
     protected int getLayoutResID() {
-        return R.layout.main_activity_main;
+        return R.layout.design_activity_main;
     }
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        dateList.add("module_design_pattern");
+        dataList.add("状态模式");
         rlv.setLayoutManager(new LinearLayoutManager(getContext()));
-        mainAdpter = new MainAdpter(getContext(), dateList);
+        mainAdpter = new MainAdpter(getContext(), dataList);
         rlv.setAdapter(mainAdpter);
     }
 
@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity {
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                 switch (position) {
                     case 0:
-                        ARouter.getInstance().build("/design/main").navigation();
+                        startActivity(new Intent(getContext(), StateActivity.class));
                         break;
                 }
             }
