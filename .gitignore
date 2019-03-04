@@ -16,6 +16,7 @@ build/
 .idea/dictionaries
 .idea/libraries
 .idea/caches
+.idea/codeStyles
 .idea/misc.xml
 
 # 本地配置文件 (sdk path, etc)
