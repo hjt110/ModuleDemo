@@ -1,2 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="hjt.com.module_design_pattern"/>
+          package="hjt.com.module_design_pattern">
+
+    <application>
+        <activity android:name=".state.StateActivity">
+        </activity>
+    </application>
+
+</manifest>

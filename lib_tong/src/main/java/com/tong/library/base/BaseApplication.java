@@ -2,6 +2,7 @@ package com.tong.library.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.tong.library.BuildConfig;
@@ -18,6 +19,8 @@ public class BaseApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         mBaseApplication = this;
+        //MultiDex分包方法 必须最先初始化
+        MultiDex.install(this);
     }
 
     @Override

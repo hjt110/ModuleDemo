@@ -18,6 +18,9 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        //MultiDex分包方法
+        multiDexEnabled true
+        //ARouter路由设置
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]

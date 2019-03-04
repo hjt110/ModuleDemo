@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="hjt.com.module_design_pattern.state.StateActivity">
+
+    <TextView
+        android:id="@+id/tv_functionA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#de1a1a"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="功能A"
+        />
+
+    <TextView
+        android:id="@+id/tv_functionB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#d6ae16"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="功能B"
+        />
+
+    <TextView
+        android:id="@+id/tv_functionC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ee3344"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="功能C"
+        />
+
+</LinearLayout>
