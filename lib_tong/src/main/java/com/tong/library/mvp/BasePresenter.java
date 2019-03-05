@@ -1,6 +1,6 @@
 package com.tong.library.mvp;
 
-import android.util.Log;
+import java.lang.ref.WeakReference;
 
 /**
  * Created by Tong on 2018/4/23.
@@ -8,22 +8,23 @@ import android.util.Log;
 
 public abstract class BasePresenter<V extends IBaseView> {
 
-    protected V mView;
-
+    private WeakReference<V> mWeakReference;
 
     public void attachView(V view) {
-        this.mView = view;
+        mWeakReference = new WeakReference<>(view);
     }
 
     public V getView() {
-        return mView;
+        if (mWeakReference!=null)return mWeakReference.get();
+        return null;
     }
 
     public abstract void init();
 
     public void detachView() {
-        if (mView != null) {
-            mView = null;
+        if (mWeakReference != null) {
+            mWeakReference.clear();
+            mWeakReference = null;
         }
     }
 

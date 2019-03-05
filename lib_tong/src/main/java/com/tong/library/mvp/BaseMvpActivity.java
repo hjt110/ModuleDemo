@@ -1,9 +1,10 @@
-package com.tong.library.base;
+package com.tong.library.mvp;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.tong.library.base.BaseActivity;
 import com.tong.library.mvp.BasePresenter;
 import com.tong.library.mvp.IBaseView;
 
@@ -29,7 +30,9 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActiv
 
     @Override
     protected void onDestroy() {
-        mPresenter.detachView();
+        if (mPresenter!=null){
+            mPresenter.detachView();
+        }
         super.onDestroy();
     }
 
