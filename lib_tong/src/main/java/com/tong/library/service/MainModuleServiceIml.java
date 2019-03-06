@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
  * Created by hjt on 2019/1/24.
  */
 
-@Route(path = "/main/mainservice")
+@Route(path = "/lib/mainservice")
 public class MainModuleServiceIml implements IMainModuleService {
     @Override
     public String getMsg() {
