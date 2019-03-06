@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.squareup.leakcanary.LeakCanary;
 import com.tong.library.BuildConfig;
 
 /**
@@ -26,15 +27,26 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        intARouter();
+        initARouter();
+        initLeakCanary();
     }
 
-    private void intARouter() {
+    private void initARouter() {
         if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
             ARouter.openLog();     // 打印日志
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
         ARouter.init(mBaseApplication); // 尽可能早，推荐在Application中初始化
+    }
+
+    private void initLeakCanary() {
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
+        // Normal app init code...
     }
 
     /**
