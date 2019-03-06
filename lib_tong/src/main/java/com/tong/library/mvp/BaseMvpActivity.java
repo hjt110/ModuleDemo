@@ -19,7 +19,6 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends BaseActiv
         mPresenter.attachView(this);
         init(savedInstanceState);
         initEvent();
-        mPresenter.init();
     }
 
     protected abstract P initPresenter();

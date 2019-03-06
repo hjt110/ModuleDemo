@@ -37,6 +37,7 @@ public class MainActivity extends BaseActivity {
     protected void init(Bundle savedInstanceState) {
         dateList.add("module_design_pattern");
         dateList.add("module_user");
+        dateList.add("module_test");
         rlv.setLayoutManager(new LinearLayoutManager(getContext()));
         mainAdpter = new MainAdpter(getContext(), dateList);
         rlv.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
@@ -54,6 +55,9 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 1:
                         ARouter.getInstance().build("/user/second").navigation();
+                        break;
+                    case 2:
+                        ARouter.getInstance().build("/test/test").navigation();
                         break;
                 }
             }
