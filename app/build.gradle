@@ -14,12 +14,12 @@ android {
         //MultiDex分包方法
         multiDexEnabled true
         //Arouter路由配置
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                arguments = [moduleName: project.getName()]
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
 //                includeCompileClasspath = true
-//            }
-//        }
+            }
+        }
     }
     buildTypes {
         release {
@@ -34,6 +34,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':lib_tong')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    //添加下面的注释解释器会报错
 //    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
 
