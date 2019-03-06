@@ -41,5 +41,6 @@ dependencies {
         implementation project(':module_main')
         implementation project(':module_user')
         implementation project(':module_design_pattern')
+        implementation project(':module_test')
     }
 }

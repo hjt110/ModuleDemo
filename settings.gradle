@@ -1,1 +1,1 @@
-include ':app', ':lib_tong', ':module_main', ':module_user', ':module_design_pattern'
+include ':app', ':lib_tong', ':module_main', ':module_user', ':module_design_pattern', ':module_test'
