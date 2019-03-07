@@ -16,6 +16,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import hjt.com.componentbase.LoginService;
+import hjt.com.componentbase.constant.Constants;
 import hjt.com.module.main.adpter.MainAdpter;
 
 @Route(path = "/main/main")
@@ -51,13 +52,13 @@ public class MainActivity extends BaseActivity {
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
                 switch (position) {
                     case 0:
-                        ARouter.getInstance().build("/design/main").navigation();
+                        ARouter.getInstance().build(Constants.ACTIVITY_DESIGN_MAIN).navigation();
                         break;
                     case 1:
-                        ARouter.getInstance().build("/user/second").navigation();
+                        ARouter.getInstance().build(Constants.ACTIVITY_USER_SECOND).navigation();
                         break;
                     case 2:
-                        ARouter.getInstance().build("/test/test").navigation();
+                        ARouter.getInstance().build(Constants.ACTIVITY_TEST_TEST).navigation();
                         break;
                     case 3:
                         show(LoginService.getInstance().isLogin()+"");

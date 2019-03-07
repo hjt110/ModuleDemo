@@ -12,8 +12,9 @@ import com.tong.library.base.BaseActivity;
 
 import butterknife.BindView;
 import hjt.com.componentbase.LoginService;
+import hjt.com.componentbase.constant.Constants;
 
-@Route(path = "/user/second")
+@Route(path = Constants.ACTIVITY_USER_SECOND)
 public class SecondActivity extends BaseActivity {
 
 

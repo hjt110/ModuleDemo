@@ -15,12 +15,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import hjt.com.componentbase.constant.Constants;
 import hjt.com.module_design_pattern.adpter.MainAdpter;
 import hjt.com.module_design_pattern.factory.FactoryActivity;
 import hjt.com.module_design_pattern.single.SingleActivity;
 import hjt.com.module_design_pattern.state.StateActivity;
 
-@Route(path = "/design/main")
+@Route(path = Constants.ACTIVITY_DESIGN_MAIN)
 public class MainActivity extends BaseActivity {
 
     @BindView(R2.id.rlv)

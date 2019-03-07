@@ -1,13 +1,13 @@
 package hjt.com.module_test;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.tong.library.mvp.BaseMvpActivity;
 
-@Route(path = "/test/test")
+import hjt.com.componentbase.constant.Constants;
+
+@Route(path = Constants.ACTIVITY_TEST_TEST)
 public class TestActivity extends BaseMvpActivity<TestPresenter> implements TestConstract.View {
 
     @Override
