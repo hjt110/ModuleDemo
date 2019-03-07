@@ -1,6 +1,7 @@
 package hjt.com.module.user;
 
-import com.tong.library.service.ILogin;
+
+import hjt.com.componentbase.ILogin;
 
 public class TestILogin implements ILogin {
     @Override

@@ -1,4 +1,4 @@
-package com.tong.library.service;
+package hjt.com.componentbase;
 
 public interface ILogin {
     boolean isLogin();

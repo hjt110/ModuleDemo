@@ -9,9 +9,9 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.tong.library.base.BaseActivity;
-import com.tong.library.service.LoginService;
 
 import butterknife.BindView;
+import hjt.com.componentbase.LoginService;
 
 @Route(path = "/user/second")
 public class SecondActivity extends BaseActivity {
