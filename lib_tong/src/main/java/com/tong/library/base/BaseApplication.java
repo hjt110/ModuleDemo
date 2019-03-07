@@ -12,7 +12,7 @@ import com.tong.library.BuildConfig;
  * Created by hjt on 2019/1/23.
  */
 
-public class BaseApplication extends Application {
+public abstract class BaseApplication extends Application {
 
     private static BaseApplication mBaseApplication;
 
@@ -29,7 +29,13 @@ public class BaseApplication extends Application {
         super.onCreate();
         initARouter();
         initLeakCanary();
+        initModule();
     }
+
+    /**
+     * 初始化各个module的BaseApplication(若module有想在自己module实现的初始化)
+     */
+    public abstract void initModule();
 
     private void initARouter() {
         if (BuildConfig.DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
