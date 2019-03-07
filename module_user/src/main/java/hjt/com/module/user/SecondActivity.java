@@ -2,7 +2,6 @@ package hjt.com.module.user;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
@@ -10,11 +9,9 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.tong.library.base.BaseActivity;
-import com.tong.library.service.MainModuleServiceIml;
+import com.tong.library.service.LoginService;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 @Route(path = "/user/second")
 public class SecondActivity extends BaseActivity {
@@ -37,6 +34,8 @@ public class SecondActivity extends BaseActivity {
 
     @Override
     protected void initEvent() {
+
+        LoginService.getInstance().setLogin(new TestILogin());
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setBlockNetworkImage(false);

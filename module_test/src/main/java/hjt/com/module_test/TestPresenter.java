@@ -19,7 +19,4 @@ public class TestPresenter extends BasePresenter<TestConstract.View> implements 
         }
     };
 
-    public void init() {
-        mHandler.sendEmptyMessageDelayed(1, 5000);
-    }
 }

@@ -11,6 +11,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.tong.library.adapter.recyclerview.MultiItemTypeAdapter;
 import com.tong.library.base.BaseActivity;
+import com.tong.library.service.LoginService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,7 @@ public class MainActivity extends BaseActivity {
         dateList.add("module_design_pattern");
         dateList.add("module_user");
         dateList.add("module_test");
+        dateList.add("isLogin");
         rlv.setLayoutManager(new LinearLayoutManager(getContext()));
         mainAdpter = new MainAdpter(getContext(), dateList);
         rlv.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
@@ -58,6 +60,9 @@ public class MainActivity extends BaseActivity {
                         break;
                     case 2:
                         ARouter.getInstance().build("/test/test").navigation();
+                        break;
+                    case 3:
+                        show(LoginService.getInstance().isLogin()+"");
                         break;
                 }
             }
