@@ -16,12 +16,6 @@ public class SPUtils {
      */
     public static final String FILE_NAME = "share_data";
 
-    public static Context mContext = null;
-
-    public static void init(Context context) {
-        mContext = context;
-    }
-
     /**
      * 保存数据的方法，我们需要拿到保存数据的具体类型，然后根据类型调用不同的保存方法
      *
@@ -30,9 +24,7 @@ public class SPUtils {
      */
     public static void put(String key, Object object)
     {
-        if (mContext == null) throw new NullPointerException("mContext is null,请先在Application中初始化context");
-
-        SharedPreferences sp = mContext.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = AppContextUtil.getContext().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
         if (object instanceof String) {
@@ -61,9 +53,7 @@ public class SPUtils {
      */
     public static Object get(String key, Object defaultObject)
     {
-        if (mContext == null) throw new NullPointerException("mContext is null,请先在Application中初始化context");
-
-        SharedPreferences sp = mContext.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = AppContextUtil.getContext().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
 
         if (defaultObject instanceof String) {
             return sp.getString(key, (String) defaultObject);
@@ -87,7 +77,7 @@ public class SPUtils {
      */
     public static void remove(String key)
     {
-        SharedPreferences sp = mContext.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = AppContextUtil.getContext().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.remove(key);
         SharedPreferencesCompat.apply(editor);
@@ -98,7 +88,7 @@ public class SPUtils {
      */
     public static void clear()
     {
-        SharedPreferences sp = mContext.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = AppContextUtil.getContext().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.clear();
         SharedPreferencesCompat.apply(editor);
@@ -112,7 +102,7 @@ public class SPUtils {
      */
     public static boolean contains(String key)
     {
-        SharedPreferences sp = mContext.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = AppContextUtil.getContext().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         return sp.contains(key);
     }
 
@@ -123,7 +113,7 @@ public class SPUtils {
      */
     public static Map<String, ?> getAll()
     {
-        SharedPreferences sp = mContext.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sp = AppContextUtil.getContext().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         return sp.getAll();
     }
 
