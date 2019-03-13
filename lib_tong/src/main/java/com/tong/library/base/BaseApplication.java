@@ -7,6 +7,7 @@ import android.support.multidex.MultiDex;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.squareup.leakcanary.LeakCanary;
 import com.tong.library.BuildConfig;
+import com.tong.library.utils.SPUtils;
 
 /**
  * Created by hjt on 2019/1/23.
@@ -29,6 +30,7 @@ public abstract class BaseApplication extends Application {
         super.onCreate();
         initARouter();
         initLeakCanary();
+        SPUtils.init(this);
         initModule();
     }
 
