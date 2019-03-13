@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/componentbase/componentbase.iml" filepath="$PROJECT_DIR$/componentbase/componentbase.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_tong/lib_tong.iml" filepath="$PROJECT_DIR$/lib_tong/lib_tong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lib_tong19/lib_tong19.iml" filepath="$PROJECT_DIR$/lib_tong19/lib_tong19.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_design_pattern/module_design_pattern.iml" filepath="$PROJECT_DIR$/module_design_pattern/module_design_pattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_main/module_main.iml" filepath="$PROJECT_DIR$/module_main/module_main.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_test/module_test.iml" filepath="$PROJECT_DIR$/module_test/module_test.iml" />
