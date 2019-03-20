@@ -86,9 +86,11 @@ public abstract class CommonAllAdapter<T> extends MultiItemTypeAdapter<T> {
         }
         if (mHeaderViews.get(viewType) != null) {
             ViewHolder holder = ViewHolder.createViewHolder(parent.getContext(), mHeaderViews.get(viewType));
+            setListener(parent,holder,viewType);
             return holder;
         } else if (mFootViews.get(viewType) != null) {
             ViewHolder holder = ViewHolder.createViewHolder(parent.getContext(), mFootViews.get(viewType));
+            setListener(parent,holder,viewType);
             return holder;
         }
         return super.onCreateViewHolder(parent, viewType);
