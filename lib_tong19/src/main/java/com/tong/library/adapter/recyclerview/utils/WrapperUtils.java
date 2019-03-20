@@ -37,6 +37,31 @@ public class WrapperUtils
         }
     }
 
+    /**
+     * Adpter里直接使用
+     * @param recyclerView
+     * @param callback
+     */
+    public static void onAttachedToRecyclerView(RecyclerView recyclerView, final SpanSizeCallback callback)
+    {
+        RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+        if (layoutManager instanceof GridLayoutManager)
+        {
+            final GridLayoutManager gridLayoutManager = (GridLayoutManager) layoutManager;
+            final GridLayoutManager.SpanSizeLookup spanSizeLookup = gridLayoutManager.getSpanSizeLookup();
+
+            gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup()
+            {
+                @Override
+                public int getSpanSize(int position)
+                {
+                    return callback.getSpanSize(gridLayoutManager, spanSizeLookup, position);
+                }
+            });
+            gridLayoutManager.setSpanCount(gridLayoutManager.getSpanCount());
+        }
+    }
+
     public static void setFullSpan(RecyclerView.ViewHolder holder)
     {
         ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
