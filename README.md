@@ -8,9 +8,8 @@
 			  }
 		}
 		
-2. Add the dependency:<br>
+2.Add the dependency:<br>
         
-        
-        dependencies {
-	        		implementation 'com.github.hjt110:ModuleDemo:V1.0'
-			}
+    dependencies {
+	    implementation 'com.github.hjt110:ModuleDemo:V1.0'
+	}
